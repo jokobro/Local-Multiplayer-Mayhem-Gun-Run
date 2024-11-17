@@ -7,6 +7,8 @@ public class SegmentManager : MonoBehaviour
     [SerializeField] private GameObject[] segments;
     [Range(1, 5)] public int segmentsInLevel;
     [SerializeField] private int distanceBetweenSegments;
+    [Tooltip("Flip every second segment horizontally")]
+    [SerializeField] private bool flip;
 
     private void Awake()
     {
@@ -19,9 +21,13 @@ public class SegmentManager : MonoBehaviour
         {
             Vector3 spawnLocation =
             new Vector3(transform.position.x, transform.position.y -
-            (distanceBetweenSegments * (segmentsInLevel - 1) / 2) + (distanceBetweenSegments * i), transform.position.z);
+            (distanceBetweenSegments * (float)(segmentsInLevel - 1) / 2) + (distanceBetweenSegments * i), transform.position.z);
 
-            Instantiate(segments[i], spawnLocation, Quaternion.identity);
+            GameObject segment = Instantiate(segments[i], spawnLocation, Quaternion.identity);
+            if (flip && i % 2 == 1)
+            {
+                segment.transform.forward = -transform.forward;
+            }
         }
     }
 }
