@@ -342,9 +342,10 @@ MonoBehaviour:
   - {fileID: 1880705743014122390, guid: 9b698127845735f448e36b0a3548236f, type: 3}
   - {fileID: 8581055465595942691, guid: 4f5bc4f249ece964e8e823cb59de4963, type: 3}
   - {fileID: 1817347158096980461, guid: a1d64db5343024640815b7bcf37b488d, type: 3}
-  segmentsInLevel: 4
+  availableSegments: 
+  segmentsInLevel: 3
   distanceBetweenSegments: 3
-  flip: 1
+  flip: 0
 --- !u!4 &258176729
 Transform:
   m_ObjectHideFlags: 0
