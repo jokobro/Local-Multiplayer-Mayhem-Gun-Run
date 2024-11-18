@@ -24,7 +24,7 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    public void RecieveInvulnerability() // refreshes invulnerability duration if given once again
+    public void RecieveInvulnerability() // refreshes invulnerability duration if given again
     {
         if (invulIEnumerator != null)
         {
