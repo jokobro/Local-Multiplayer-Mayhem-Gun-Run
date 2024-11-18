@@ -5,29 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody _rigidBody;
-
-
-    
-
-
-    public float RunSpeed = 3f;
-    public float JumpHeight = 5f;
-
-
-    
-
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        _rigidBody = GetComponent<Rigidbody>();
-
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-
-
+        
     }
-
 }
