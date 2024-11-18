@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class PlayerState : MonoBehaviour
 {
     public PlayerStates state = PlayerStates.alive;
     public bool invulnerable;
+    [SerializeField][Range(0, 10)] private float invulnerableDuration = 5f;
     Coroutine invulIEnumerator;
 
     public void Damage()
@@ -22,19 +24,28 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    public void RecieveInvulnerability(float invulnerableTime)
+    public void RecieveInvulnerability() // refreshes invulnerability duration if given once again
     {
         if (invulIEnumerator != null)
         {
             StopCoroutine(invulIEnumerator);
         }
-        invulIEnumerator = StartCoroutine(InvulnerableToggle(invulnerableTime));
+        invulIEnumerator = StartCoroutine(InvulnerableToggle());
     }
 
-    private IEnumerator InvulnerableToggle(float duration)
+    private IEnumerator InvulnerableToggle()
     {
         invulnerable = true;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(invulnerableDuration);
+        invulnerable = false;
+    }
+
+    public void LoseInvulnerability()
+    {
+        if (invulIEnumerator != null)
+        {
+            StopCoroutine(invulIEnumerator);
+        }
         invulnerable = false;
     }
 }
