@@ -22,6 +22,7 @@ public class ExplodingBarrel : Trap
     private void Explode()
     {
         Debug.Log(gameObject.name + " exploded");
+        gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         for (int i = 0; i < hitColliders.Length; i++)
         {

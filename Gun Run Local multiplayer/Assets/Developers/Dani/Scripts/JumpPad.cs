@@ -7,17 +7,6 @@ public class JumpPad : MonoBehaviour
 {
     [SerializeField][Range(0, 10)] private int launchForce;
     [Tooltip("Multiply the x velocity of the player")][SerializeField][Range(0, 1)] private float reduceXSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
