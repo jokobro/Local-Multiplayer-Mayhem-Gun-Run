@@ -6,7 +6,7 @@ public class ExplodingBarrel : Trap
 {
 
     [SerializeField][Range(1, 5)] private float fuseTime;
-    [SerializeField][Range(1, 5)] private float explosionRadius;
+    [SerializeField][Range(1, 50)] private float explosionRadius;
     public override void ActivateTrap()
     {
         activated = true;
@@ -21,6 +21,7 @@ public class ExplodingBarrel : Trap
 
     private void Explode()
     {
+        Debug.Log(gameObject.name + " exploded");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
@@ -31,10 +32,17 @@ public class ExplodingBarrel : Trap
             }
 
             if ((hitColliders[i].gameObject.GetComponent<ExplodingBarrel>() != null)
-            && hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().activated)
+            && !hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().activated)
             {
-                hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().fuse();
+                hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().ActivateTrap();
             }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }
