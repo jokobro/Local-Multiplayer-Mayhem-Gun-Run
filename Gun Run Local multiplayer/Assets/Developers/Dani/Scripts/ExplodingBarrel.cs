@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class ExplodingBarrel : Trap
@@ -7,6 +8,14 @@ public class ExplodingBarrel : Trap
 
     [SerializeField][Range(1, 5)] private float fuseTime;
     [SerializeField][Range(1, 50)] private float explosionRadius;
+    [SerializeField][Range(0, 2500)] private int explosionForce;
+    [SerializeField] private LayerMask dontHit;
+
+    private void Awake()
+    {
+        // dontHit = ~dontHit;
+    }
+
     public override void ActivateTrap()
     {
         activated = true;
@@ -21,22 +30,46 @@ public class ExplodingBarrel : Trap
 
     private void Explode()
     {
-        Debug.Log(gameObject.name + " exploded");
         gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
-            if ((hitColliders[i].gameObject.GetComponent<PlayerState>() != null)
-            && hitColliders[i].gameObject.GetComponent<PlayerState>().state == PlayerStates.alive)
+            GameObject hitGameObject = hitColliders[i].gameObject;
+            Vector3 hitDirection = hitGameObject.transform.position - transform.position;
+            float hitDistance = Vector3.Distance(transform.position, hitGameObject.transform.position) / explosionRadius;
+            Debug.Log(hitGameObject.name + " " + hitDistance);
+            RaycastHit hit;
+            if (!Physics.Raycast(transform.position, hitDirection, out hit,
+            (hitGameObject.transform.position - transform.position).magnitude, ~dontHit))
             {
-                hitColliders[i].gameObject.GetComponent<PlayerState>().Damage();
+
+
+                {
+
+
+                    // knock and move objects away if they have a rigidbody
+                    if ((hitGameObject.gameObject.GetComponent<Rigidbody>() != null)
+                    && !hitGameObject.gameObject.GetComponent<Rigidbody>().isKinematic)
+                    {
+                        hitGameObject.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * explosionForce / (hitDistance + 0.5f), ForceMode.Force);
+
+                    }
+
+                    // damage any player within it's radius
+                    if (hitGameObject.gameObject.GetComponent<PlayerState>() != null)
+                    {
+                        hitGameObject.gameObject.GetComponent<PlayerState>().Damage();
+                    }
+
+                    // activate any other exploding barrel hit
+                    if ((hitGameObject.gameObject.GetComponent<ExplodingBarrel>() != null)
+                    && !hitGameObject.gameObject.GetComponent<ExplodingBarrel>().activated)
+                    {
+                        hitGameObject.gameObject.GetComponent<ExplodingBarrel>().ActivateTrap();
+                    }
+                }
             }
 
-            if ((hitColliders[i].gameObject.GetComponent<ExplodingBarrel>() != null)
-            && !hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().activated)
-            {
-                hitColliders[i].gameObject.GetComponent<ExplodingBarrel>().ActivateTrap();
-            }
         }
     }
 

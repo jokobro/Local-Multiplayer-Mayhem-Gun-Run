@@ -18,9 +18,10 @@ public class PlayerState : MonoBehaviour
 
     public void Damage()
     {
-        if (!invulnerable)
+        if (!invulnerable && state != PlayerStates.dead)
         {
             Debug.Log(gameObject.name + " Killed");
+            state = PlayerStates.dead;
         }
     }
 
