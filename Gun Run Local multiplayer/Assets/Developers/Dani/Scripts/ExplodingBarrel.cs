@@ -10,12 +10,7 @@ public class ExplodingBarrel : Trap
     [SerializeField][Range(1, 50)] private float explosionRadius;
     [SerializeField][Range(0, 2500)] private int explosionForce;
     [SerializeField] private LayerMask dontHit;
-
-    private void Awake()
-    {
-        // dontHit = ~dontHit;
-    }
-
+    
     public override void ActivateTrap()
     {
         activated = true;

@@ -5,10 +5,10 @@ using UnityEngine;
 public class SegmentManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] segments;
-    [Tooltip("What segments are still available to be used")] [SerializeField] private List<int> availableSegments;
+    [Tooltip("What segments are still available to be used")][SerializeField] private List<int> availableSegments;
     [Range(1, 5)] public int segmentsInLevel = 3;
-    [SerializeField] private int distanceBetweenSegments = 5; 
-    [Tooltip("Flip every second segment horizontally")] [SerializeField] private bool flip = true;
+    [SerializeField] private int distanceBetweenSegments = 5;
+    [Tooltip("Flip every second segment horizontally")][SerializeField] private bool flip = true;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class SegmentManager : MonoBehaviour
 
             Vector3 spawnLocation =
             new Vector3(transform.position.x, transform.position.y -
-            (distanceBetweenSegments * (float)(segmentsInLevel - 1) / 2) + (distanceBetweenSegments * i), transform.position.z); 
+            (distanceBetweenSegments * (float)(segmentsInLevel - 1) / 2) + (distanceBetweenSegments * i), transform.position.z);
             // calculates the vertical instantiate position by essentially splitting the segments across the y axis
 
             GameObject segment = Instantiate(segments[availableSegments[chosenSegment]], spawnLocation, Quaternion.identity);

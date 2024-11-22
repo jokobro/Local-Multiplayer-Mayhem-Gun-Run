@@ -13,10 +13,4 @@ public class GunnerBall : MonoBehaviour
         _rb.velocity += -Vector3.forward * 10;
         _rb.velocity += Vector3.up * 5;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
