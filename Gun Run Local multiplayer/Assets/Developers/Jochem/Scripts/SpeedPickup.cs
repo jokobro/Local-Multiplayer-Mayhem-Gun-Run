@@ -20,7 +20,6 @@ public class SpeedPickup : MonoBehaviour
         }
     }*/
 
-
     private void activateSpeedPickup()
     {
         FindObjectOfType<PlayerController>().RunSpeed = 4.5f;

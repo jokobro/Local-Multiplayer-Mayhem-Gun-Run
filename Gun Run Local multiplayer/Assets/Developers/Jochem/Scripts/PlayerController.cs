@@ -9,19 +9,15 @@ public class PlayerController : MonoBehaviour
     
     private PlayerInput _playerInput;
     private InputAction _moveAction;
-    private InputAction _jumpAction;
     private Rigidbody _rigidBody;
     
-
     private bool _isGrounded;
     
-
 
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions.FindAction("PlayerMovement");
-        _jumpAction = _playerInput.actions.FindAction("Jump");
         _rigidBody = GetComponent<Rigidbody>();
     }
 
