@@ -359,7 +359,7 @@ MonoBehaviour:
   availableSegments: 
   segmentsInLevel: 3
   distanceBetweenSegments: 5
-  flip: 0
+  flip: 1
 --- !u!4 &258176729
 Transform:
   m_ObjectHideFlags: 0

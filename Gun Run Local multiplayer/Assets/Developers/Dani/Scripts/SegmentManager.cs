@@ -6,9 +6,9 @@ public class SegmentManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] segments;
     [Tooltip("What segments are still available to be used")] [SerializeField] private List<int> availableSegments;
-    [Range(1, 5)] public int segmentsInLevel;
-    [SerializeField] private int distanceBetweenSegments; 
-    [Tooltip("Flip every second segment horizontally")] [SerializeField] private bool flip;
+    [Range(1, 5)] public int segmentsInLevel = 3;
+    [SerializeField] private int distanceBetweenSegments = 5; 
+    [Tooltip("Flip every second segment horizontally")] [SerializeField] private bool flip = true;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class SegmentManager : MonoBehaviour
             availableSegments.RemoveAt(chosenSegment); // removes the segment that you just instantiated. If you removed index 2, index 3 will take it's place
             if (flip && i % 2 == 1) // flips every second segment horizontally
             {
-                segment.transform.forward = -transform.forward; // face the segment towards the opposite direction than it'd initially face
+                segment.transform.GetChild(0).gameObject.transform.right = -transform.right; // face the segment towards the opposite direction than it'd initially face
             }
         }
     }

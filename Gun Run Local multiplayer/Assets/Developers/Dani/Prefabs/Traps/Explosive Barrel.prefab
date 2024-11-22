@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5748627415638254635}
   - component: {fileID: 9146069225327165826}
   - component: {fileID: 136830007828673473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explosive Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
