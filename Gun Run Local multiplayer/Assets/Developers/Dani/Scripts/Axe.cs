@@ -13,6 +13,11 @@ public class Axe : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    public void ActivateAxe()
+    {
+        StartCoroutine(LoseHit());
+    }
+
     public IEnumerator LoseHit()
     {
         Debug.Log("IEnum");

@@ -335,7 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58276cf4866b5294cbc0df0851eb9a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingTime: 1
+  swingTime: 1.2
+  guarenteedHit: 1
 --- !u!1 &258176727
 GameObject:
   m_ObjectHideFlags: 0

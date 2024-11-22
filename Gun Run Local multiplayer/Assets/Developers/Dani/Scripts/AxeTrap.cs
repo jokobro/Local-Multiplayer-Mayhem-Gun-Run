@@ -16,7 +16,7 @@ public class AxeTrap : Trap
     public override void ActivateTrap()
     {
         activated = true;
-        axe.GetComponent<Axe>().LoseHit();
+        axe.GetComponent<Axe>().ActivateAxe();
         joint = axe.AddComponent<HingeJoint>();
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = axe.transform.position;
@@ -25,9 +25,8 @@ public class AxeTrap : Trap
 
     private void FixedUpdate()
     {
-        if (axe.transform.rotation.eulerAngles.z >= 180)
+        if ((joint != null) && axe.transform.rotation.eulerAngles.z >= 180)
         {
-            Debug.Log("Hellooo");
             Destroy(joint);
         }
     }
