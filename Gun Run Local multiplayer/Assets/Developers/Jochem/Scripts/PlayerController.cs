@@ -51,6 +51,17 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = true;
         }
+        if (collision.gameObject.tag == ("Projectile"))
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+
+
+
     }
 
 }
