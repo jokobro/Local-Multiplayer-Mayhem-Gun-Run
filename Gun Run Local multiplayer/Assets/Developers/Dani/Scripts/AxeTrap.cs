@@ -10,7 +10,6 @@ public class AxeTrap : Trap
     private void Awake()
     {
         axe = transform.GetChild(0).gameObject;
-        ActivateTrap();
     }
 
     public override void ActivateTrap()

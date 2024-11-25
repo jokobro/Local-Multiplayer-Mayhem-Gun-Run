@@ -15,6 +15,7 @@ public class Axe : MonoBehaviour
 
     public void ActivateAxe()
     {
+        _rb.isKinematic = false;
         StartCoroutine(LoseHit());
     }
 
