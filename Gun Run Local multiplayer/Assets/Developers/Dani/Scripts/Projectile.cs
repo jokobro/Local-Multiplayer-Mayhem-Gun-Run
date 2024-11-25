@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Rigidbody _rb;
+    private Rigidbody _rigidbody;
 
     [HideInInspector] public float floatMult;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        _rb.AddForce(transform.up * floatMult);
+        _rigidbody.AddForce(transform.up * floatMult);
     }
 }

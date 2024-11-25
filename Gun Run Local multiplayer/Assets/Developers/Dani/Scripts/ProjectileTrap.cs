@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ProjectileTrap : Trap
 {
-    [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject _projectileGameObject;
 
-    [SerializeField] private int projectilesPerVolley;
-    [SerializeField] private int volleyAmount;
-    [SerializeField] private float timeBetweenProjectiles;
-    [SerializeField] private float timeBetweenVolleys;
-    private int onProjectile;
-    private int onVolley;
+    [SerializeField] private int _projectilesPerVolley;
+    [SerializeField] private int _volleyAmount;
+    [SerializeField] private float _timeBetweenProjectiles;
+    [SerializeField] private float _timeBetweenVolleys;
+    private int _onProjectile;
+    private int _onVolley;
 
-    [Range(0, 10)][SerializeField] private float projectileMoveSpeed;
-    [Tooltip("How much the projectile should levitate")][Range(0, 10)][SerializeField] private float projectileFloatMult;
+    [Range(0, 10)][SerializeField] private float _projectileMoveSpeed;
+    [Tooltip("How much the projectile should levitate")][Range(0, 10)][SerializeField] private float _projectileFloatMult;
 
     private void Awake()
     {
@@ -28,21 +28,21 @@ public class ProjectileTrap : Trap
 
     IEnumerator Volley()
     {
-        Projectile _projectile = Instantiate(projectile, transform.position + (transform.forward * 1), Quaternion.identity).GetComponent<Projectile>();
-        _projectile.floatMult = projectileFloatMult;
-        _projectile.gameObject.GetComponent<Rigidbody>().velocity = Vector3.forward * projectileMoveSpeed + Vector3.up * 5;
-        onProjectile++;
-        yield return new WaitForSeconds(timeBetweenProjectiles);
-        if (onProjectile >= projectilesPerVolley)
+        Projectile _projectile = Instantiate(_projectileGameObject, transform.position + (transform.forward * 1), Quaternion.identity).GetComponent<Projectile>();
+        _projectile.floatMult = _projectileFloatMult;
+        _projectile.gameObject.GetComponent<Rigidbody>().velocity = Vector3.forward * _projectileMoveSpeed + Vector3.up * 5;
+        _onProjectile++;
+        yield return new WaitForSeconds(_timeBetweenProjectiles);
+        if (_onProjectile >= _projectilesPerVolley)
         {
-            onProjectile = 0;
-            onVolley++;
-            if (onVolley < volleyAmount)
+            _onProjectile = 0;
+            _onVolley++;
+            if (_onVolley < _volleyAmount)
             {
                 StartCoroutine(WaitForVolley());
             }
         }
-        else if (onVolley < volleyAmount)
+        else if (_onVolley < _volleyAmount)
         {
             StartCoroutine(Volley());
         }
@@ -50,7 +50,7 @@ public class ProjectileTrap : Trap
 
     IEnumerator WaitForVolley()
     {
-        yield return new WaitForSeconds(timeBetweenVolleys);
+        yield return new WaitForSeconds(_timeBetweenVolleys);
         StartCoroutine(Volley());
     }
 }
