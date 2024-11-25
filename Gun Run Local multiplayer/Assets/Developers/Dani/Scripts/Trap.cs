@@ -11,6 +11,7 @@ public class Trap : MonoBehaviour
         if (other.gameObject.GetComponent<GunnerBall>() != null && !activated)
         {
             other.gameObject.GetComponent<GunnerBall>().activated = true;
+            activated = true;
             ActivateTrap();
         }
     }

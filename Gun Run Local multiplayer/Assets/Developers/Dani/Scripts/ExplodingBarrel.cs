@@ -12,7 +12,6 @@ public class ExplodingBarrel : Trap
     
     public override void ActivateTrap()
     {
-        activated = true;
         StartCoroutine(fuse());
     }
 
