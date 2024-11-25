@@ -5,7 +5,7 @@ using UnityEngine;
 public class AxeTrap : Trap
 {
     private GameObject axe;
-    private Joint joint;
+    private Joint _joint;
 
     private void Awake()
     {
@@ -15,17 +15,17 @@ public class AxeTrap : Trap
     public override void ActivateTrap()
     {
         axe.GetComponent<Axe>().ActivateAxe();
-        joint = axe.AddComponent<HingeJoint>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = axe.transform.position;
-        joint.axis = new Vector3(0, 0, 1);
+        _joint = axe.AddComponent<HingeJoint>();
+        _joint.autoConfigureConnectedAnchor = false;
+        _joint.connectedAnchor = axe.transform.position;
+        _joint.axis = new Vector3(0, 0, 1);
     }
 
     private void FixedUpdate()
     {
-        if ((joint != null) && axe.transform.rotation.eulerAngles.z >= 180)
+        if ((_joint != null) && axe.transform.rotation.eulerAngles.z >= 180)
         {
-            Destroy(joint);
+            Destroy(_joint);
         }
     }
 }
