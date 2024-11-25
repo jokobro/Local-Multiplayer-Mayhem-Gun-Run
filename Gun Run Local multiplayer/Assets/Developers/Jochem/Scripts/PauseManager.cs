@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private InputActionAsset _inputActions;
-    [SerializeField] GameObject _pauseScreen;
+    [SerializeField] private GameObject _pauseScreen;
     private InputActionMap _gameActionMap;
     private InputActionMap _uiActionMap;
 
