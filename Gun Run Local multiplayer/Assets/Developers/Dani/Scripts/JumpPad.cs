@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
-    [SerializeField][Range(0, 10)] private int launchForce;
-    [Tooltip("Multiply the x velocity of the player")][SerializeField][Range(0, 1)] private float reduceXSpeed;
+    [SerializeField][Range(0, 10)] private int _launchForce;
+    [Tooltip("Multiply the x velocity of the player")][SerializeField][Range(0, 1)] private float _reduceXSpeed;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +13,7 @@ public class JumpPad : MonoBehaviour
         {
             Rigidbody _playerRB = other.gameObject.GetComponent<Rigidbody>();
 
-            _playerRB.velocity = new Vector3(_playerRB.velocity.x * reduceXSpeed, _playerRB.velocity.y, _playerRB.velocity.z);
+            _playerRB.velocity = new Vector3(_playerRB.velocity.x * _reduceXSpeed, _playerRB.velocity.y, _playerRB.velocity.z);
             _playerRB.velocity += new Vector3(0, 10, 0);
         }
     }

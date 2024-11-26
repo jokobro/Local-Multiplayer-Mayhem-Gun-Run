@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public bool activated;
+    public bool isActivated;
 
     protected void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<GunnerBall>() != null && !activated)
+        if (other.gameObject.GetComponent<GunnerBall>() != null && !isActivated)
         {
-            other.gameObject.GetComponent<GunnerBall>().activated = true;
+            other.gameObject.GetComponent<GunnerBall>().isActivated = true;
+            isActivated = true;
             ActivateTrap();
         }
     }

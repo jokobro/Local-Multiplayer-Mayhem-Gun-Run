@@ -1,41 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class ExplodingBarrel : Trap
 {
+    [SerializeField][Range(1, 5)] private float _fuseTime;
+    [SerializeField][Range(1, 50)] private float _explosionRadius;
+    [SerializeField][Range(0, 2500)] private int _explosionForce;
+    [SerializeField] private LayerMask _dontHit;
 
-    [SerializeField][Range(1, 5)] private float fuseTime;
-    [SerializeField][Range(1, 50)] private float explosionRadius;
-    [SerializeField][Range(0, 2500)] private int explosionForce;
-    [SerializeField] private LayerMask dontHit;
-    
     public override void ActivateTrap()
     {
-        activated = true;
         StartCoroutine(fuse());
     }
 
     IEnumerator fuse()
     {
-        yield return new WaitForSeconds(fuseTime);
+        yield return new WaitForSeconds(_fuseTime);
         Explode();
     }
 
     private void Explode()
     {
         gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _explosionRadius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
             GameObject hitGameObject = hitColliders[i].gameObject;
             Vector3 hitDirection = hitGameObject.transform.position - transform.position;
-            float hitDistance = Vector3.Distance(transform.position, hitGameObject.transform.position) / explosionRadius;
+            float hitDistance = Vector3.Distance(transform.position, hitGameObject.transform.position) / _explosionRadius;
             Debug.Log(hitGameObject.name + " " + hitDistance);
             RaycastHit hit;
             if (!Physics.Raycast(transform.position, hitDirection, out hit,
-            (hitGameObject.transform.position - transform.position).magnitude, ~dontHit))
+            (hitGameObject.transform.position - transform.position).magnitude, ~_dontHit))
             {
 
 
@@ -46,7 +43,7 @@ public class ExplodingBarrel : Trap
                     if ((hitGameObject.gameObject.GetComponent<Rigidbody>() != null)
                     && !hitGameObject.gameObject.GetComponent<Rigidbody>().isKinematic)
                     {
-                        hitGameObject.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * explosionForce / (hitDistance + 0.5f), ForceMode.Force);
+                        hitGameObject.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * _explosionForce / (hitDistance + 0.5f), ForceMode.Force);
 
                     }
 
@@ -58,7 +55,7 @@ public class ExplodingBarrel : Trap
 
                     // activate any other exploding barrel hit
                     if ((hitGameObject.gameObject.GetComponent<ExplodingBarrel>() != null)
-                    && !hitGameObject.gameObject.GetComponent<ExplodingBarrel>().activated)
+                    && !hitGameObject.gameObject.GetComponent<ExplodingBarrel>().isActivated)
                     {
                         hitGameObject.gameObject.GetComponent<ExplodingBarrel>().ActivateTrap();
                     }
@@ -72,6 +69,6 @@ public class ExplodingBarrel : Trap
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, _explosionRadius);
     }
 }

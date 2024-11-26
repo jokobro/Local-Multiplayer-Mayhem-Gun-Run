@@ -13,8 +13,8 @@ public class PlayerState : MonoBehaviour
 {
     public PlayerStates state = PlayerStates.alive;
     public bool invulnerable;
-    [SerializeField][Range(0, 10)] private float invulnerableDuration = 5f;
-    Coroutine invulIEnumerator;
+    [SerializeField][Range(0, 10)] private float _invulnerableDuration = 5f;
+    private Coroutine _invulIEnumerator;
 
     public void Damage()
     {
@@ -27,25 +27,25 @@ public class PlayerState : MonoBehaviour
 
     public void RecieveInvulnerability() // refreshes invulnerability duration if given again
     {
-        if (invulIEnumerator != null)
+        if (_invulIEnumerator != null)
         {
-            StopCoroutine(invulIEnumerator);
+            StopCoroutine(_invulIEnumerator);
         }
-        invulIEnumerator = StartCoroutine(InvulnerableToggle());
+        _invulIEnumerator = StartCoroutine(InvulnerableToggle());
     }
 
     private IEnumerator InvulnerableToggle()
     {
         invulnerable = true;
-        yield return new WaitForSeconds(invulnerableDuration);
+        yield return new WaitForSeconds(_invulnerableDuration);
         invulnerable = false;
     }
 
     public void LoseInvulnerability()
     {
-        if (invulIEnumerator != null)
+        if (_invulIEnumerator != null)
         {
-            StopCoroutine(invulIEnumerator);
+            StopCoroutine(_invulIEnumerator);
         }
         invulnerable = false;
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunnerBall : MonoBehaviour
 {
     private Rigidbody _rb;
-    public bool activated;
+    public bool isActivated;
     // Start is called before the first frame update
     void Awake()
     {

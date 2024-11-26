@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class AxeTrap : Trap
 {
-    private GameObject axe;
-    private Joint joint;
+    private GameObject _axe;
+    private Joint _joint;
 
     private void Awake()
     {
-        axe = transform.GetChild(0).gameObject;
-        ActivateTrap();
+        _axe = transform.GetChild(0).gameObject;
     }
 
     public override void ActivateTrap()
     {
-        activated = true;
-        axe.GetComponent<Axe>().LoseHit();
-        joint = axe.AddComponent<HingeJoint>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = axe.transform.position;
-        joint.axis = new Vector3(0, 0, 1);
+        _axe.GetComponent<Axe>().ActivateAxe();
+        _joint = _axe.AddComponent<HingeJoint>();
+        _joint.autoConfigureConnectedAnchor = false;
+        _joint.connectedAnchor = _axe.transform.position;
+        _joint.axis = new Vector3(0, 0, 1);
     }
 
     private void FixedUpdate()
     {
-        if (axe.transform.rotation.eulerAngles.z >= 180)
+        if ((_joint != null) && _axe.transform.rotation.eulerAngles.z >= 180)
         {
-            Debug.Log("Hellooo");
-            Destroy(joint);
+            Destroy(_joint);
         }
     }
 }
