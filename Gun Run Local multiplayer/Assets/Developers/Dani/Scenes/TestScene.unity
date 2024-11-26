@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58276cf4866b5294cbc0df0851eb9a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingTime: 1.2
-  guarenteedHit: 1
+  _swingTime: 0
+  isGuarenteedHit: 1
 --- !u!1 &258176727
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,14 +366,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21078d59d7420be4d9d81acbdfd04167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segments:
+  _segments:
   - {fileID: 1138536554266442757, guid: 01f862d4e35d92d4abf1981cf99b3702, type: 3}
   - {fileID: 1880705743014122390, guid: 9b698127845735f448e36b0a3548236f, type: 3}
   - {fileID: 8581055465595942691, guid: 4f5bc4f249ece964e8e823cb59de4963, type: 3}
   - {fileID: 1817347158096980461, guid: a1d64db5343024640815b7bcf37b488d, type: 3}
-  availableSegments: 
-  segmentsInLevel: 3
-  distanceBetweenSegments: 5
+  _availableSegments: 
+  _segmentsInLevel: 3
+  _distanceBetweenSegments: 5
   flip: 1
 --- !u!4 &258176729
 Transform:
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690e344dcc8e99648950a42c658be132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
+  isActivated: 0
 --- !u!1 &816907843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9208b2f6aef690e4e8ccfa07d74e362a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
+  isActivated: 0
 --- !u!1 &1157763362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,12 +1962,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4682005426630812517, guid: d367a62d4d994a84fb8ce0a854d1009d, type: 3}
     - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _volleyAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _timeBetweenVolleys
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
       propertyPath: projectileFloatMult
       value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
       propertyPath: projectileMoveSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _projectileFloatMult
+      value: 6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _projectileMoveSpeed
+      value: 5.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _projectileGameObject
+      value: 
+      objectReference: {fileID: 4682005426630812517, guid: d367a62d4d994a84fb8ce0a854d1009d, type: 3}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _projectilesPerVolley
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 950815926845625933, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: _timeBetweenProjectiles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2008,6 +2048,10 @@ PrefabInstance:
     - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293173973765581985, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5719881509579052962, guid: b8d995ee0bda8b64f9df9ba58562660b, type: 3}
       propertyPath: m_Name

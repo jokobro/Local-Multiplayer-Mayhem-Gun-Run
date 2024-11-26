@@ -28,7 +28,10 @@ public class ProjectileTrap : Trap
 
     IEnumerator Volley()
     {
-        Projectile _projectile = Instantiate(_projectileGameObject, transform.position + (transform.forward * 1), Quaternion.identity).GetComponent<Projectile>();
+        Projectile _projectile = Instantiate(_projectileGameObject, transform.position +
+        transform.forward * (GetComponent<Collider>().bounds.size.x + 0.1f) * 0.5f, // ensures the projectile is always spawned at the forward direction of the trap
+        Quaternion.identity).GetComponent<Projectile>();
+
         _projectile.floatMult = _projectileFloatMult;
         _projectile.gameObject.GetComponent<Rigidbody>().velocity = Vector3.forward * _projectileMoveSpeed + Vector3.up * 5;
         _onProjectile++;
