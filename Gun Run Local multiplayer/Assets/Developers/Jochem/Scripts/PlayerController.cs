@@ -4,15 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float JumpForce = 5f;
-    public float RunSpeed = 3f;
-    
     private PlayerInput _playerInput;
     private InputAction _moveAction;
-    private Rigidbody _rigidBody;
-    
+    private Rigidbody _rigidBody;   
     private bool _isGrounded;
-    
+    public float JumpForce = 5f;
+    public float RunSpeed = 3f;
 
     private void Start()
     {
@@ -51,6 +48,17 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = true;
         }
+        if (collision.gameObject.tag == ("Projectile"))
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+
+
+
     }
 
 }
