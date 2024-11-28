@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     public float JumpForce = 5f;
     public float RunSpeed = 3f;
+    public bool isGunner = false;
+
+    public void AssignGunner()
+    {
+        isGunner = true;
+        // Voer acties uit specifiek voor de gunner, zoals het activeren van een wapen.
+    }
 
     private void Start()
     {
@@ -21,6 +28,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
+
+        if (isGunner)
+        {
+            // Acties voor de gunner (bijv. richten en schieten).
+        }
+        else
+        {
+            // Acties voor de runners (bijv. bewegen en ontwijken).
+        }
+
     }
 
     private void Movement()
