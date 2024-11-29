@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
+
         // Optioneel: houd UI verborgen totdat er genoeg spelers zijn.
     }
 

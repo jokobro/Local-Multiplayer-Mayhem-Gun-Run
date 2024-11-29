@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
         _shootAction.performed += shoot;
         _rigidBody = GetComponent<Rigidbody>();
 
-
-
     }
 
     private void Update()
@@ -93,9 +91,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
-
-
 
     public void shoot(InputAction.CallbackContext context)
     {
