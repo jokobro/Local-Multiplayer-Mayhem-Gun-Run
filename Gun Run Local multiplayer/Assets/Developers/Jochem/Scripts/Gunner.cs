@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Gunner : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
+   /* [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnpoint;
     private float _nextfire;
     private float _bulletSpeed = 6f;
@@ -26,5 +26,5 @@ public class Gunner : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().velocity = _bulletSpawnpoint.forward * _bulletSpeed;
             }
         }
-    }
+    }*/
 }

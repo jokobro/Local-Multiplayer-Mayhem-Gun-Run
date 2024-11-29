@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerJoinHandler : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    /*[SerializeField] private GameManager gameManager;
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
@@ -18,5 +18,5 @@ public class PlayerJoinHandler : MonoBehaviour
         {
             Debug.LogError("PlayerInput heeft geen PlayerController!");
         }
-    }
+    }*/
 }

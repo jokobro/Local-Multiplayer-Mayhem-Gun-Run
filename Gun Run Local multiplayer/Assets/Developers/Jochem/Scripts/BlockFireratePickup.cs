@@ -7,7 +7,7 @@ public class BlockFireratePickup : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            FindObjectOfType<Gunner>().BlockFireRatePickUP = true;
+            FindObjectOfType<PlayerController>().BlockFireRatePickUP = true;
             StartCoroutine(ResetFireRate());
         }
     }
@@ -15,7 +15,7 @@ public class BlockFireratePickup : MonoBehaviour
     private IEnumerator ResetFireRate()
     {
         yield return new WaitForSeconds(15);
-        FindObjectOfType<Gunner>().BlockFireRatePickUP = false;
+        FindObjectOfType<PlayerController>().BlockFireRatePickUP = false;
         Debug.Log("fire rate gereset");
         Destroy(gameObject);
     }

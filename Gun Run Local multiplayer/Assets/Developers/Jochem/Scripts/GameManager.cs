@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _checkPoint;
     public List<GameObject> players = new List<GameObject>();
     private bool gameStarted = false;
+    private LoadScene _loadScene;
+
 
     private void Start()
     {
@@ -20,7 +22,11 @@ public class GameManager : MonoBehaviour
 
         if (players.Count >= 2 && !gameStarted)
         {
-            StartGame();
+            if(FindObjectOfType<LoadScene>().StartButtonPressed == true)
+            {
+                StartGame();
+                Debug.Log("Game is gestart");
+            }
         }
     }
 
