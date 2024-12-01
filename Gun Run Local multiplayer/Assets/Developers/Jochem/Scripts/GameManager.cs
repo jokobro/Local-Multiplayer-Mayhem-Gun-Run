@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _checkPoint;
+   /* [SerializeField] private GameObject _checkPoint;
     public List<GameObject> players = new List<GameObject>();
     private bool gameStarted = false;
     private LoadScene _loadScene;
@@ -63,5 +63,28 @@ public class GameManager : MonoBehaviour
     private void checkPlayerPassedCheckpoint()
     {
 
+    }
+*/
+
+
+    public PlayerController[] Players;
+
+    private void Start()
+    {
+        AssignRandomGunner();
+    }
+
+    private void AssignRandomGunner()
+    {
+        if (Players.Length == 0)
+        {
+            Debug.LogError("No players found!");
+            return;
+        }
+
+        int randomIndex = Random.Range(0, Players.Length); // Kies een willekeurige speler
+        Players[randomIndex].AssignGunner();
+
+        Debug.Log($"Player {Players[randomIndex].PlayerNumber} is assigned as the gunner!");
     }
 }
