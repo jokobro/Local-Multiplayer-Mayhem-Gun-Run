@@ -31,10 +31,13 @@ public class PlayerController : MonoBehaviour
         _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
         _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
 
+
         _shootAction = _playerInput.actions.FindAction("Shoot");
         _shootAction.performed += Shoot;
-        /*_jumpAction.performed += Jump;*/
+        _jumpAction.performed += Jump;
         _rigidBody = GetComponent<Rigidbody>();
+
+        Debug.Log($"Player {PlayerNumber} initialized with Movement and Jump actions.");
     }
 
     private void Update()
@@ -64,11 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce);
             _isGrounded = false;
-            Debug.Log("Jump");
+            Debug.Log($"Player {PlayerNumber} jumped!");
         }
         else
         {
-            Debug.Log("Can't jump");
+            Debug.Log($"Player {PlayerNumber} tried to jump but is not grounded.");
         }
     }
 
