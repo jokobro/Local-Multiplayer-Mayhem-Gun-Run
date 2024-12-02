@@ -1,9 +1,14 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Number")]
+    public int PlayerNumber = 1; // Identificeert de speler
+
+    [Header("Player")]// variable for player
+    public float JumpForce = 5f;
+    public float RunSpeed = 3f;
     private PlayerInput _playerInput;
     private InputAction _moveAction;
     private InputAction _jumpAction;
@@ -11,46 +16,40 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidBody;
     private bool _isGrounded;
 
-    public float JumpForce = 5f;
-    public float RunSpeed = 3f;
-
-    // Variabelen voor de gunner
+    [Header("Gunner")] // Variable for gunner
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnpoint;
-    private float _nextFire;
-    private float _bulletSpeed = 6f;
     public float FireRate = 3.0f;
     public bool BlockFireRatePickUp = false;
     public bool IsGunner = false;
-
-    public int PlayerNumber = 1; // Identificeert de speler (bijv. 1, 2, 3, etc.)
-
-    public void AssignGunner()
-    {
-        IsGunner = true;
-        // Specifieke acties voor de gunner, zoals het activeren van een wapen.
-    }
-
+    private float _nextFire;
+    private float _bulletSpeed = 6f;
+   
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
         _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
-        _shootAction = _playerInput.actions["Player" + PlayerNumber + "Shoot"];
-        _shootAction.performed += Shoot;
-        _jumpAction.performed += Jump;
 
+        _shootAction = _playerInput.actions.FindAction("Shoot");
+        _shootAction.performed += Shoot;
+        /*_jumpAction.performed += Jump;*/
         _rigidBody = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         Movement();
-
+       
         if (IsGunner && _shootAction.triggered)
         {
             ShootBullet();
         }
+    }
+    public void AssignGunner()
+    {
+        IsGunner = true;
+
     }
 
     private void Movement()
@@ -59,13 +58,17 @@ public class PlayerController : MonoBehaviour
         transform.position += new Vector3(direction.x * RunSpeed * Time.deltaTime, 0, 0);
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    private void Jump(InputAction.CallbackContext context)
     {
         if (context.performed && _isGrounded)
         {
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce);
             _isGrounded = false;
-            Debug.Log($"Player {PlayerNumber} jump");
+            Debug.Log("Jump");
+        }
+        else
+        {
+            Debug.Log("Can't jump");
         }
     }
 
@@ -84,7 +87,7 @@ public class PlayerController : MonoBehaviour
     private void Death()
     {
         Debug.Log($"Player {PlayerNumber} died!");
-        // Implementeer doodslogica (bijv. respawn, game over, etc.).
+
     }
 
     public void Shoot(InputAction.CallbackContext context)
