@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Number")]
-    public int PlayerNumber = 1; // Identificeert de speler
+    public int PlayerNumber; // Identificeert de speler
 
     [Header("Player")]// variable for player
     public float JumpForce = 5f;
@@ -28,16 +28,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
+
+        Debug.Log($"Player {PlayerNumber} initialized with PlayerInput index {_playerInput.playerIndex}");
         _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
         _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
-
-
         _shootAction = _playerInput.actions.FindAction("Shoot");
         _shootAction.performed += Shoot;
         _jumpAction.performed += Jump;
         _rigidBody = GetComponent<Rigidbody>();
-
-        Debug.Log($"Player {PlayerNumber} initialized with Movement and Jump actions.");
     }
 
     private void Update()
@@ -63,15 +61,20 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && _isGrounded)
+        /*Debug.Log($"Action '{context.action.name}' triggered for Player {PlayerNumber}");*/
+
+        string expectedActionName = "Player" + PlayerNumber + "Jump";
+        if (context.action.name != expectedActionName)
         {
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce);
+            Debug.Log($"Player {PlayerNumber} ignored action {context.action.name}");
+            return;
+        }
+
+        if (_isGrounded)
+        {
+            _rigidBody.velocity = new Vector3(_rigidBody.velocity.x, JumpForce, _rigidBody.velocity.z);
             _isGrounded = false;
             Debug.Log($"Player {PlayerNumber} jumped!");
-        }
-        else
-        {
-            Debug.Log($"Player {PlayerNumber} tried to jump but is not grounded.");
         }
     }
 
