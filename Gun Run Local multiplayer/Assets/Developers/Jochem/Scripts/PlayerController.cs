@@ -15,42 +15,43 @@ public class PlayerController : MonoBehaviour
     private InputAction _shootAction;
     private Rigidbody _rigidBody;
     private bool _isGrounded;
+     public bool BlockFireRatePickUp = false;
+    
+    public bool IsGunner = false;
 
-    [Header("Gunner")] // Variable for gunner
+    private Gunner gunner;
+    /*[Header("Gunner")] // Variable for gunner
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnpoint;
     public float FireRate = 3.0f;
-    public bool BlockFireRatePickUp = false;
-    public bool IsGunner = false;
+   
+   
     private float _nextFire;
-    private float _bulletSpeed = 6f;
+    private float _bulletSpeed = 6f;*/
    
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
-
-        Debug.Log($"Player {PlayerNumber} initialized with PlayerInput index {_playerInput.playerIndex}");
         _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
         _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
         _shootAction = _playerInput.actions.FindAction("Shoot");
-        _shootAction.performed += Shoot;
+        /*_shootAction.performed += Shoot;*/
         _jumpAction.performed += Jump;
         _rigidBody = GetComponent<Rigidbody>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
     {
         Movement();
-       
-        if (IsGunner && _shootAction.triggered)
-        {
-            ShootBullet();
-        }
+
+
     }
     public void AssignGunner()
     {
         IsGunner = true;
-
+        gameObject.SetActive(false); // Deactiveer de originele speler
+        Debug.Log($"Player {PlayerNumber} is nu de gunner!");
     }
 
     private void Movement()
@@ -92,11 +93,12 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
+        Destroy(gameObject);
         Debug.Log($"Player {PlayerNumber} died!");
 
     }
 
-    public void Shoot(InputAction.CallbackContext context)
+   /* public void Shoot(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -119,5 +121,5 @@ public class PlayerController : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = _bulletSpawnpoint.forward * _bulletSpeed;
             Debug.Log($"Player {PlayerNumber} fired a bullet!");
         }
-    }
+    }*/
 }
