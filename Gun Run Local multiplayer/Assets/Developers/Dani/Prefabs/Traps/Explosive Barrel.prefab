@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db20ccc1f75e9064daffcce24751f646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
-  fuseTime: 1.5
-  explosionRadius: 5.5
-  explosionForce: 1000
-  dontHit:
+  isActivated: 0
+  _fuseTime: 1.5
+  _explosionRadius: 6.2
+  _explosionForce: 1051
+  _dontHit:
     serializedVersion: 2
     m_Bits: 64
 --- !u!1 &7890452879720959112

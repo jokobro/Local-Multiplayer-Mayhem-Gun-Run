@@ -34,11 +34,7 @@ public class ExplodingBarrel : Trap
             if (!Physics.Raycast(transform.position, hitDirection, out hit,
             (hitGameObject.transform.position - transform.position).magnitude, ~_dontHit))
             {
-
-
                 {
-
-
                     // knock and move objects away if they have a rigidbody
                     if ((hitGameObject.gameObject.GetComponent<Rigidbody>() != null)
                     && !hitGameObject.gameObject.GetComponent<Rigidbody>().isKinematic)
