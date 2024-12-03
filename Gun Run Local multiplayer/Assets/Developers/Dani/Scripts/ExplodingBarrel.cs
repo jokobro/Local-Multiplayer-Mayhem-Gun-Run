@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExplodingBarrel : Trap
 {
+    [SerializeField] private GameObject _explosion;
     [SerializeField][Range(1, 5)] private float _fuseTime;
     [SerializeField][Range(1, 50)] private float _explosionRadius;
     [SerializeField][Range(0, 2500)] private int _explosionForce;
@@ -22,7 +23,7 @@ public class ExplodingBarrel : Trap
 
     private void Explode()
     {
-        gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        Instantiate(_explosion, transform.position, Quaternion.identity);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _explosionRadius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
@@ -57,7 +58,7 @@ public class ExplodingBarrel : Trap
                     }
                 }
             }
-
+            Destroy(gameObject);
         }
     }
 
