@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class JumpPickup : MonoBehaviour
 {
-    private PlayerController _player;
     private void Start()
     {
         FindObjectOfType<PlayerController>().JumpForce = 7.5f;

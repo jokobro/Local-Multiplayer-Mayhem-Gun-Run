@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     private InputActionMap _gameActionMap;
     private InputActionMap _uiActionMap;
 
+
     private void Start()
     {
         _gameActionMap = _inputActions.FindActionMap("Game");
