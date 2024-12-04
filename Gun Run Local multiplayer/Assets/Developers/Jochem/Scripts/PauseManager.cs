@@ -8,7 +8,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject _pauseScreen;
     private InputActionMap _gameActionMap;
     private InputActionMap _uiActionMap;
-
+    private bool _isPaused = false;
+    
 
     private void Start()
     {
@@ -20,19 +21,26 @@ public class PauseManager : MonoBehaviour
         _uiActionMap.Disable();
     }
 
-    public void Pausing(InputAction.CallbackContext Context)
+    private void Update()
     {
-        if (Context.performed)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Paused");
-            Time.timeScale = 0f;
-            _pauseScreen.SetActive(true);
-            _gameActionMap.Disable();
-            _uiActionMap.Enable();
+            Pausing();
+            _isPaused = true;
         }
+
     }
 
-    public void Resume()
+    private void Pausing()
+    {
+        Debug.Log("Paused"); 
+        Time.timeScale = 0f;
+        _pauseScreen.SetActive(true);
+        _gameActionMap.Disable();
+        _uiActionMap.Enable();
+    }
+
+    private void Resume()
     {
         Time.timeScale = 1f;
         _pauseScreen.SetActive(false);

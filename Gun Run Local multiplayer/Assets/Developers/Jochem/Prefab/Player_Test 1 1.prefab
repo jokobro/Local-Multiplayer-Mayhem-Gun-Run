@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7156783591450064402
+--- !u!1 &1116164441416476460
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2513578388972660299}
-  - component: {fileID: 6842981192323892169}
-  - component: {fileID: 3982332716376443932}
-  - component: {fileID: 9088596245831176551}
-  - component: {fileID: 4922616422488078644}
-  - component: {fileID: 7836417622648673497}
-  - component: {fileID: 4947341837399622344}
+  - component: {fileID: 7377291209639074437}
+  - component: {fileID: 2878489577683584144}
+  - component: {fileID: 8235002877694268802}
+  - component: {fileID: 3861683804836342995}
+  - component: {fileID: 7531108262304637639}
+  - component: {fileID: 3248092155708468062}
+  - component: {fileID: 3760865534044975197}
   m_Layer: 0
-  m_Name: Player_Test 1
+  m_Name: Player_Test 1 1
   m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2513578388972660299
+--- !u!4 &7377291209639074437
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.621, y: 1.068, z: 0}
+  m_LocalPosition: {x: -1.5015754, y: 0.5962409, z: -0.7425225}
   m_LocalScale: {x: 1.1924818, y: 1.1924818, z: 1.1924818}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6842981192323892169
+--- !u!33 &2878489577683584144
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3982332716376443932
+--- !u!23 &8235002877694268802
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -87,13 +87,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &9088596245831176551
+--- !u!54 &3861683804836342995
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -114,13 +114,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4922616422488078644
+--- !u!114 &7531108262304637639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7836417622648673497}
+      - m_Target: {fileID: 3248092155708468062}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Movement
         m_Mode: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_ActionName: Game/New action[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7836417622648673497}
+      - m_Target: {fileID: 3248092155708468062}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -259,37 +259,59 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a30c1d34-cefd-44d3-b527-a176d3d88a02
     m_ActionName: Game/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cfa6d5e8-e942-4324-8f4b-0a6cf4e3d64b
+    m_ActionName: Game/Player2Movement[/Keyboard/f,/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33337694-57a2-4569-970b-193ed05e56a6
+    m_ActionName: Game/Player3Movement[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9aade5fb-bb1c-4071-8f45-6947a1e826e8
+    m_ActionName: Game/Player4Movement[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d7cf218-0fdb-463a-a287-40692c44cbba
+    m_ActionName: Game/Player2Jump[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7b09744-2341-4a82-b5e5-1ea5813465d6
+    m_ActionName: Game/Player3Jump[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a56f504-0d7c-498a-8679-7b4766b53e71
+    m_ActionName: Game/Player4Jump[/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7836417622648673497
+--- !u!114 &3248092155708468062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 320d89f767b66674386331ed84de3f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNumber: 0
   JumpForce: 5
   RunSpeed: 3
-  _bulletPrefab: {fileID: 271801246045153553, guid: 3e84d0e5b2928284ead629e8236764b4, type: 3}
-  _bulletSpawnpoint: {fileID: 0}
-  FireRate: 3
-  BlockFireRatePickUP: 0
-  isGunner: 0
---- !u!65 &4947341837399622344
+  BlockFireRatePickUp: 0
+  IsGunner: 0
+--- !u!65 &3760865534044975197
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156783591450064402}
+  m_GameObject: {fileID: 1116164441416476460}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

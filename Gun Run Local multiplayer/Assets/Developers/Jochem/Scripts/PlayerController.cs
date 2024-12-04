@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     
     public bool IsGunner = false;
 
+    private PauseManager _pauseManager;
+
     private Gunner gunner;
     /*[Header("Gunner")] // Variable for gunner
     [SerializeField] private GameObject _bulletPrefab;
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
 
-
+     
     }
     public void AssignGunner()
     {

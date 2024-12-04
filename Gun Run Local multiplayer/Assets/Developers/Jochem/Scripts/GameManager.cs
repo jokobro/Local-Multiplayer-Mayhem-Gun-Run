@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PlayerPrefab; // Prefab van de speler
-    public Transform[] SpawnPoints; // Spawnposities voor spelers
+    [SerializeField] private GameObject PlayerPrefab; // Prefab van de speler
+    [SerializeField] private GameObject _gunnerPrefab;
+    [SerializeField] private Transform[] SpawnPoints; // Spawnposities voor spelers
     public List<PlayerController> Players = new List<PlayerController>(); // Lijst met alle spelers
     public List<PlayerController> Runners = new List<PlayerController>(); // Lijst met renners (geen gunner)
     public int MaxPlayers = 4;
     private bool _gameStarted = false;
     private PlayerController _gunner;
+   
 
     public void AddPlayer()
     {
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
         PlayerController playerController = playerObj.GetComponent<PlayerController>();
         playerController.PlayerNumber = playerNumber; // Ken een uniek PlayerNumber toe
         DontDestroyOnLoad(playerObj);
-
+       
         Players.Add(playerController);
         Debug.Log($"Speler {playerNumber} is gejoint!");
     }
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void AssignRandomGunner()
     {
-       /* int randomIndex = Random.Range(0, Players.Count);
+       int randomIndex = Random.Range(0, Players.Count);
         _gunner = Players[randomIndex];
         _gunner.AssignGunner(); // Zet de speler in de "gunner"-rol
 
@@ -58,14 +60,13 @@ public class GameManager : MonoBehaviour
 
 
         // Vervang de speler door een speciale gunner prefab
-        GameObject gunnerObj = Instantiate(GunnerPrefab, _gunner.transform.position, Quaternion.identity);
-
-
-
+        GameObject gunnerObj = Instantiate(_gunnerPrefab, _gunner.transform.position, Quaternion.identity);
 
         Destroy(_gunner.gameObject); // Verwijder de originele speler
-        DontDestroyOnLoad(gunnerObj); // Zorg ervoor dat de gunner blijft bestaan
-        Debug.Log($"Player {_gunner.PlayerNumber} is de gunner!");*/
+         //DontDestroyOnLoad(gunnerObj);
+        
+         // Zorg ervoor dat de gunner blijft bestaan
+        Debug.Log($"Player {_gunner.PlayerNumber} is de gunner!");
     }
 
     // Sla de renners op (alle spelers behalve de gunner)
