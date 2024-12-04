@@ -33,6 +33,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Player4Movement",
+                    "type": "Value",
+                    "id": "9aade5fb-bb1c-4071-8f45-6947a1e826e8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Player1Jump",
                     "type": "Value",
                     "id": "49ce077b-cf19-4764-9867-ccf88291666a",
@@ -54,6 +63,15 @@
                     "name": "Player3Jump",
                     "type": "Button",
                     "id": "a7b09744-2341-4a82-b5e5-1ea5813465d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Player4Jump",
+                    "type": "Button",
+                    "id": "0a56f504-0d7c-498a-8679-7b4766b53e71",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -126,7 +144,7 @@
                 {
                     "name": "",
                     "id": "b3689372-cb50-45ac-865b-4b8a51664398",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -254,6 +272,50 @@
                     "action": "Player3Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Movement",
+                    "id": "f0dd97da-e6e8-4734-bce7-5c5daa88fbc5",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player4Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "6f66eca3-4846-482a-9cf6-74f8d53f2933",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player4Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c47beae6-1d5d-4837-9759-e2996713a7e2",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player4Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "86501143-1050-4562-9806-a716046e30e0",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player4Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

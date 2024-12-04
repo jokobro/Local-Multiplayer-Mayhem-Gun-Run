@@ -2,29 +2,48 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Gunner : MonoBehaviour
 {
-   /* [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _bulletSpawnpoint;
-    private float _nextfire;
-    private float _bulletSpeed = 6f;
-    public float FireRate = 3.0f;
-    public bool BlockFireRatePickUP = false;
+    public Camera MainCamera; // Camera voor targeting
+    public GameObject BulletPrefab; // Prefab van de kogel
+    public Transform BulletSpawnPoint; // Spawnlocatie van de kogel
+    public float BulletSpeed = 10f; // Kracht waarmee de kogel wordt geschoten
+    public float FireRate = 0.5f; // Vuursnelheid
+    private float _nextFireTime;
 
-
-    public void shoot(InputAction.CallbackContext context)
+    private void Update()
     {
-        if (BlockFireRatePickUP == true)
+        Aim();
+        if (Input.GetButtonDown("Fire1") && Time.time >= _nextFireTime)
         {
-            Debug.Log("Cant fire");
+            Shoot();
         }
-        else if (BlockFireRatePickUP == false && Time.time > _nextfire)
+    }
+
+    // Richt het wapen naar de crosshair/target
+    private void Aim()
+    {
+        Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (context.performed)
-            {
-                _nextfire = Time.time + FireRate;
-                var bullet = Instantiate(_bulletPrefab, _bulletSpawnpoint);
-                bullet.transform.parent = null;
-                bullet.GetComponent<Rigidbody>().velocity = _bulletSpawnpoint.forward * _bulletSpeed;
-            }
+            transform.position = hit.point; // Verplaats de gunner/crosshair naar de hitlocatie
         }
-    }*/
+    }
+
+    // Schiet een kogel
+    public void Shoot()
+    {
+        _nextFireTime = Time.time + FireRate;
+
+        // Maak een kogel aan en voeg kracht toe
+        GameObject bullet = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+
+        // Richt de kogel richting het doel met een boog
+        Vector3 direction = (transform.forward + transform.forward * 0.5f).normalized; // Voeg een opwaartse component toe
+        bulletRb.AddForce(direction * BulletSpeed, ForceMode.Impulse); // Gebruik een impuls voor een boogje
+
+        Debug.Log("Gunner heeft geschoten!");
+    }
+
+
+
 }
