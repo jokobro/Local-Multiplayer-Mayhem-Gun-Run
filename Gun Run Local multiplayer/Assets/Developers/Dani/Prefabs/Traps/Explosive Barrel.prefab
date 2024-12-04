@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5748627415638254635}
   - component: {fileID: 9146069225327165826}
   - component: {fileID: 136830007828673473}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Explosive Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,11 +123,11 @@ MonoBehaviour:
   isActivated: 0
   _explosion: {fileID: 4081038988949065556, guid: fca8f610a19319b4fac50804fa0c9d59, type: 3}
   _fuseTime: 1.5
-  _explosionRadius: 6.2
+  _explosionRadius: 9
   _explosionForce: 1051
   _dontHit:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 384
 --- !u!1 &7890452879720959112
 GameObject:
   m_ObjectHideFlags: 0

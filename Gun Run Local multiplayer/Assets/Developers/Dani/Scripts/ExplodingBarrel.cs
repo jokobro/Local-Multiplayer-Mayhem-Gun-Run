@@ -10,8 +10,14 @@ public class ExplodingBarrel : Trap
     [SerializeField][Range(0, 2500)] private int _explosionForce;
     [SerializeField] private LayerMask _dontHit;
 
+    private void Awake()
+    {
+        ActivateTrap();
+    }
+
     public override void ActivateTrap()
     {
+        base.ActivateTrap();
         StartCoroutine(fuse());
     }
 
@@ -30,7 +36,6 @@ public class ExplodingBarrel : Trap
             GameObject hitGameObject = hitColliders[i].gameObject;
             Vector3 hitDirection = hitGameObject.transform.position - transform.position;
             float hitDistance = Vector3.Distance(transform.position, hitGameObject.transform.position) / _explosionRadius;
-            Debug.Log(hitGameObject.name + " " + hitDistance);
             RaycastHit hit;
             if (!Physics.Raycast(transform.position, hitDirection, out hit,
             (hitGameObject.transform.position - transform.position).magnitude, ~_dontHit))
@@ -51,10 +56,10 @@ public class ExplodingBarrel : Trap
                     }
 
                     // activate any other exploding barrel hit
-                    if ((hitGameObject.gameObject.GetComponent<ExplodingBarrel>() != null)
-                    && !hitGameObject.gameObject.GetComponent<ExplodingBarrel>().isActivated)
+                    if ((hitGameObject.gameObject.GetComponent<Trap>() != null)
+                    && !hitGameObject.gameObject.GetComponent<Trap>().isActivated)
                     {
-                        hitGameObject.gameObject.GetComponent<ExplodingBarrel>().ActivateTrap();
+                        hitGameObject.gameObject.GetComponent<Trap>().ActivateTrap();
                     }
                 }
             }

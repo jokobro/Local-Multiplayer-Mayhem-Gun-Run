@@ -11,13 +11,12 @@ public class Trap : MonoBehaviour
         if (other.gameObject.GetComponent<GunnerBall>() != null && !isActivated)
         {
             other.gameObject.GetComponent<GunnerBall>().isActivated = true;
-            isActivated = true;
             ActivateTrap();
         }
     }
 
     public virtual void ActivateTrap()
     {
-
+        isActivated = true;
     }
 }
