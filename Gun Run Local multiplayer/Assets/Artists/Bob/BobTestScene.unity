@@ -293,15 +293,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 367b2d2ad317dc1439da8dab124c2d41, type: 2}
     - target: {fileID: -8679921383154817045, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_LocalRotation.w
@@ -446,6 +446,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_Name
       value: Knight Run Rood
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1330713023609297301, guid: ce12c4ad527585b4799ac85c6abe10ed, type: 3}
       propertyPath: m_IsActive
@@ -1752,7 +1756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2623384721032963199, guid: 604ebc5f853041a4a84c96838b401dba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4820291186635972016, guid: 604ebc5f853041a4a84c96838b401dba, type: 3}
       propertyPath: m_LocalPosition.x
