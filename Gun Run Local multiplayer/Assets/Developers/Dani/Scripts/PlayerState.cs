@@ -20,8 +20,18 @@ public class PlayerState : MonoBehaviour
     {
         if (!invulnerable && state != PlayerStates.dead)
         {
+            GetComponent<PlayerController>().Death();
             Debug.Log(gameObject.name + " Killed");
             state = PlayerStates.dead;
+        }
+    }
+
+    protected void OnCollisionEnter(Collision other)
+    {
+        if ((other.gameObject.GetComponent<GunnerBall>() != null) && !other.gameObject.GetComponent<GunnerBall>().isActivated)
+        {
+            other.gameObject.GetComponent<GunnerBall>().isActivated = true;
+            Damage();
         }
     }
 

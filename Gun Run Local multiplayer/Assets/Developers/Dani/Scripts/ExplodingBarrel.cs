@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplodingBarrel : Trap
 {
     [SerializeField] private GameObject _explosion;
+    [SerializeField] private GameObject _fuse;
     [SerializeField] private GameObject _explosionIndicator;
     [SerializeField][Range(1, 5)] private float _fuseTime;
     [SerializeField][Range(1, 50)] private float _explosionRadius;
@@ -24,6 +25,7 @@ public class ExplodingBarrel : Trap
 
     IEnumerator fuse()
     {
+        Instantiate(_fuse, transform.position + _fuse.transform.position, Quaternion.identity, gameObject.transform);
         GameObject _indicator = Instantiate(_explosionIndicator, transform.position, Quaternion.identity, gameObject.transform);
         _indicator.transform.localScale = new Vector3(2, _explosionRadius * 2, _explosionRadius * 2);
         yield return new WaitForSeconds(_fuseTime);
@@ -53,7 +55,7 @@ public class ExplodingBarrel : Trap
                     }
 
                     // damage any player within it's radius
-                    if (hitGameObject.gameObject.GetComponent<PlayerState>() != null)
+                    if ((hitGameObject.GetComponent<PlayerState>() != null) && hitGameObject.GetComponent<PlayerState>().state == PlayerStates.alive)
                     {
                         hitGameObject.gameObject.GetComponent<PlayerState>().Damage();
                     }

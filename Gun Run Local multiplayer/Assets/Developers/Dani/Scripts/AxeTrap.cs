@@ -15,6 +15,8 @@ public class AxeTrap : Trap
     public override void ActivateTrap()
     {
         base.ActivateTrap();
+        _axe.GetComponent<Collider>().enabled = true;
+        _axe.GetComponent<CapsuleCollider>().enabled = true;
         _axe.GetComponent<Axe>().ActivateAxe();
         _joint = _axe.AddComponent<HingeJoint>();
         _joint.autoConfigureConnectedAnchor = false;

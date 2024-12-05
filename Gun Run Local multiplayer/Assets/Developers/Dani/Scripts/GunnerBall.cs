@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GunnerBall : MonoBehaviour
 {
-    private Rigidbody _rb;
     public bool isActivated;
-    // Start is called before the first frame update
-    void Awake()
+
+    private void OnCollisionEnter(Collision other)
     {
-        _rb = GetComponent<Rigidbody>();
-        _rb.velocity += -Vector3.forward * 10;
-        _rb.velocity += Vector3.up * 5;
+        isActivated = true;
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(10f);
     }
 }
