@@ -9,7 +9,8 @@ public class Axe : MonoBehaviour
     [SerializeField] private float _swingTime;
     public bool isGuarenteedHit = true;
 
-    private void Awake() {
+    private void Awake()
+    {
         _rb = GetComponent<Rigidbody>();
     }
 
@@ -21,7 +22,6 @@ public class Axe : MonoBehaviour
 
     public IEnumerator LoseHit()
     {
-        Debug.Log("IEnum");
         yield return new WaitForSeconds(_swingTime);
         isGuarenteedHit = false;
     }

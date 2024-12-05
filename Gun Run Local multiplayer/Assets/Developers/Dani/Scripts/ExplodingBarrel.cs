@@ -12,11 +12,6 @@ public class ExplodingBarrel : Trap
     [SerializeField][Range(0, 2500)] private int _explosionForce;
     [SerializeField] private LayerMask _dontHit;
 
-    private void Awake()
-    {
-        ActivateTrap();
-    }
-
     public override void ActivateTrap()
     {
         base.ActivateTrap();
