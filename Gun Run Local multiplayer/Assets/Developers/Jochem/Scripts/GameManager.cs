@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject PlayerPrefab; // Prefab van de speler
+    [SerializeField] private GameObject[] PlayerPrefabs; // Prefab van de speler
     [SerializeField] private GameObject _gunnerPrefab;
     [SerializeField] private Transform[] SpawnPoints; // Spawnposities voor spelers
     public List<PlayerController> Players = new List<PlayerController>(); // Lijst met alle spelers
@@ -24,9 +24,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (Players.Count >= PlayerPrefabs.Length)
+        {
+            Debug.LogError("Niet genoeg unieke prefabs beschikbaar voor spelers.");
+            return;
+        }
+
         int playerNumber = Players.Count + 1; // Bepaal het PlayerNumber
         Transform spawnPoint = SpawnPoints[Players.Count]; // Kies spawnlocatie
-        GameObject playerObj = Instantiate(PlayerPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject playerObj = Instantiate(PlayerPrefabs[Players.Count], spawnPoint.position, spawnPoint.rotation);
 
         PlayerController playerController = playerObj.GetComponent<PlayerController>();
         playerController.PlayerNumber = playerNumber; // Ken een uniek PlayerNumber toe
@@ -55,8 +61,6 @@ public class GameManager : MonoBehaviour
        int randomIndex = Random.Range(0, Players.Count);
         _gunner = Players[randomIndex];
         _gunner.AssignGunner(); // Zet de speler in de "gunner"-rol
-
-
 
 
         // Vervang de speler door een speciale gunner prefab
