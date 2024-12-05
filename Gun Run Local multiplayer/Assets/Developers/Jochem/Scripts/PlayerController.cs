@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Number")]
+   /* [Header("Player Number")]
     public int PlayerNumber; // Identificeert de speler
 
     [Header("Player")]// variable for player
@@ -15,29 +15,18 @@ public class PlayerController : MonoBehaviour
     private InputAction _shootAction;
     private Rigidbody _rigidBody;
     private bool _isGrounded;
-     public bool BlockFireRatePickUp = false;
-    
+    public bool BlockFireRatePickUp = false;
     public bool IsGunner = false;
-
     private PauseManager _pauseManager;
-
     private Gunner gunner;
-    /*[Header("Gunner")] // Variable for gunner
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _bulletSpawnpoint;
-    public float FireRate = 3.0f;
-   
-   
-    private float _nextFire;
-    private float _bulletSpeed = 6f;*/
-   
+
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
         _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
         _shootAction = _playerInput.actions.FindAction("Shoot");
-        /*_shootAction.performed += Shoot;*/
+
         _jumpAction.performed += Jump;
         _rigidBody = GetComponent<Rigidbody>();
         DontDestroyOnLoad(gameObject);
@@ -46,8 +35,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
-
-     
     }
     public void AssignGunner()
     {
@@ -64,8 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        /*Debug.Log($"Action '{context.action.name}' triggered for Player {PlayerNumber}");*/
-
         string expectedActionName = "Player" + PlayerNumber + "Jump";
         if (context.action.name != expectedActionName)
         {
@@ -99,29 +84,83 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Player {PlayerNumber} died!");
 
     }
+*/
 
-   /* public void Shoot(InputAction.CallbackContext context)
+
+ 
+
+
+    [Header("Player Number")]
+    public int PlayerNumber; // Identificeert de speler
+
+    [Header("Player Settings")] // Instellingen voor de speler
+    public float JumpForce = 5f;
+    public float RunSpeed = 3f;
+    private PlayerInput _playerInput;
+    private InputAction _moveAction;
+    private InputAction _jumpAction;
+    private Rigidbody _rigidBody;
+    private bool _isGrounded;
+    public bool BlockFireRatePickUp = false;
+    public bool IsGunner = false;
+
+    private void Start()
     {
-        if (context.performed)
+        _playerInput = GetComponent<PlayerInput>();
+        _moveAction = _playerInput.actions["Player" + PlayerNumber + "Movement"];
+        _jumpAction = _playerInput.actions["Player" + PlayerNumber + "Jump"];
+
+        _jumpAction.performed += Jump;
+        _rigidBody = GetComponent<Rigidbody>();
+        DontDestroyOnLoad(gameObject); // Zorg ervoor dat de speler niet vernietigd wordt bij scene overgang
+    }
+
+    private void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
+    {
+        Vector2 direction = _moveAction.ReadValue<Vector2>();
+        transform.position += new Vector3(direction.x * RunSpeed * Time.deltaTime, 0, 0);
+    }
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        if (_isGrounded)
         {
-            ShootBullet();
+            _rigidBody.velocity = new Vector3(_rigidBody.velocity.x, JumpForce, _rigidBody.velocity.z);
+            _isGrounded = false;
+            Debug.Log($"Player {PlayerNumber} jumped!");
         }
     }
 
-    private void ShootBullet()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (BlockFireRatePickUp)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log($"Player {PlayerNumber} can't fire due to FireRate block.");
-            return;
+            _isGrounded = true;
         }
 
-        if (Time.time > _nextFire)
+        if (collision.gameObject.CompareTag("Projectile"))
         {
-            _nextFire = Time.time + FireRate;
-            var bullet = Instantiate(_bulletPrefab, _bulletSpawnpoint.position, _bulletSpawnpoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = _bulletSpawnpoint.forward * _bulletSpeed;
-            Debug.Log($"Player {PlayerNumber} fired a bullet!");
+            Death();
         }
-    }*/
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+        Debug.Log($"Player {PlayerNumber} died!");
+    }
+
+    public void AssignGunner()
+    {
+        IsGunner = true;
+        gameObject.SetActive(false); // Deactiveer de speler als de gunner wordt toegewezen
+        Debug.Log($"Player {PlayerNumber} is now the gunner!");
+    }
 }
+
+
