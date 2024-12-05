@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         AssignRandomGunner();
         _gameStarted = true;
-        SceneManager.LoadScene("Test scene Jochem");
+        SceneManager.LoadScene("Game Scene final");
         Debug.Log("Het spel is gestart!");
     }
 
