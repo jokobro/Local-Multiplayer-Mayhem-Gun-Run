@@ -1026,8 +1026,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 77.355255, y: -60.029}
-  m_SizeDelta: {x: 697.8798, y: 120.0576}
+  m_AnchoredPosition: {x: 85.79288, y: -310.98987}
+  m_SizeDelta: {x: 1339.0892, y: 120.0779}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790756592
 MonoBehaviour:
@@ -1089,7 +1089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 790756592}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: ReloadScene
+        m_MethodName: LoadLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -8,12 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main menu scene.unity
     guid: c096d3a3b2b6c02489b9c744018325b8
-  - enabled: 0
-    path: Assets/Developers/Jochem/Test scene/MainMenu.unity
-    guid: 60f2f85466f1c8948b4628b9f22a0ff8
-  - enabled: 0
-    path: Assets/Developers/Jochem/Test scene/Test scene Jochem.unity
-    guid: f9b99946a0298f7408236291145365a0
+  - enabled: 1
+    path: Assets/Artists/Joost/Lobby Scene.unity
+    guid: aaecc72dce1627f4cadecd45968aa4c5
   - enabled: 1
     path: Assets/Scenes/Game Scene final.unity
     guid: 7ddef09e33751844d9bd3ed27c2d61cc

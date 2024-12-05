@@ -8,12 +8,12 @@ public class LoadScene : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main menu scene");
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Game Scene final");
         StartButtonPressed = true;
     }
     
@@ -26,7 +26,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadLobby()
     {
-      SceneManager.LoadScene("");
+      SceneManager.LoadScene("Lobby Scene");
       Debug.Log("Load lobby");
     }
 
