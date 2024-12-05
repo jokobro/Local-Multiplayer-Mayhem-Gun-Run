@@ -118,10 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9add1e78996834f41a46117531d989b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
-  projectile: {fileID: 0}
-  projectilesPerVolley: 5
-  volleyAmount: 3
-  timeBetweenProjectiles: 0.5
-  timeBetweenVolleys: 1
-  projectileMoveSpeed: 8
+  isActivated: 0
+  _projectileGameObject: {fileID: 4682005426630812517, guid: d367a62d4d994a84fb8ce0a854d1009d, type: 3}
+  _projectilesPerVolley: 0
+  _volleyAmount: 0
+  _timeBetweenProjectiles: 0
+  _timeBetweenVolleys: 0
+  _projectileMoveSpeed: 0
+  _projectileFloatMult: 0

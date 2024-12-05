@@ -5,15 +5,15 @@ public class JumpPickup : MonoBehaviour
 {
     private void Start()
     {
-        FindObjectOfType<PlayerController>().JumpForce = 7.5f;
+        GetComponent<PlayerController>().JumpForce = 7.5f;
         StartCoroutine(resetJumpForce());
     }
 
     private IEnumerator resetJumpForce()
     {
         yield return new WaitForSeconds(3f);
-        FindObjectOfType<PlayerController>().JumpForce = 5f;
+        GetComponent<PlayerController>().JumpForce = 5f;
         Debug.Log("jump force gereset");
-        Destroy(gameObject);
+        Destroy(this);
     }
 }

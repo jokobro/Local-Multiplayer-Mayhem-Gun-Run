@@ -12,5 +12,6 @@ public class Explosion : MonoBehaviour
     IEnumerator DestroySelf()
     {
         yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }
