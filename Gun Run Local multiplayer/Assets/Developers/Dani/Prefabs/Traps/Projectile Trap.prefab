@@ -96,8 +96,8 @@ MonoBehaviour:
   _volleyAmount: 3
   _timeBetweenProjectiles: 0.33
   _timeBetweenVolleys: 1
-  _projectileMoveSpeed: 7.54
-  _projectileFloatMult: 4.13
+  _projectileMoveSpeed: 11.4
+  _projectileFloatMult: 5.9
 --- !u!1001 &6070790194060923894
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class ProjectileTrap : Trap
     private int _onProjectile;
     private int _onVolley;
 
-    [Range(0, 10)][SerializeField] private float _projectileMoveSpeed;
+    [Range(0, 30)][SerializeField] private float _projectileMoveSpeed;
     [Tooltip("How much the projectile should levitate")][Range(0, 10)][SerializeField] private float _projectileFloatMult;
 
     public override void ActivateTrap()
@@ -30,7 +30,7 @@ public class ProjectileTrap : Trap
 
         _projectile._parent = gameObject;
         _projectile.floatMult = _projectileFloatMult;
-        _projectile.gameObject.GetComponent<Rigidbody>().velocity = -Vector3.forward * _projectileMoveSpeed + Vector3.up * 5;
+        _projectile.gameObject.GetComponent<Rigidbody>().velocity = -transform.forward * _projectileMoveSpeed + Vector3.up * 5;
         _onProjectile++;
         yield return new WaitForSeconds(_timeBetweenProjectiles);
         if (_onProjectile >= _projectilesPerVolley)

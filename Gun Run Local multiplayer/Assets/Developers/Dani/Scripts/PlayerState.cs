@@ -26,6 +26,15 @@ public class PlayerState : MonoBehaviour
         }
     }
 
+    protected void OnCollisionEnter(Collision other)
+    {
+        if ((other.gameObject.GetComponent<GunnerBall>() != null) && !other.gameObject.GetComponent<GunnerBall>().isActivated)
+        {
+            other.gameObject.GetComponent<GunnerBall>().isActivated = true;
+            Damage();
+        }
+    }
+
     public void RecieveInvulnerability() // refreshes invulnerability duration if given again
     {
         if (_invulIEnumerator != null)

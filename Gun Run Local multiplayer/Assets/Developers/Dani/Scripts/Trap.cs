@@ -8,7 +8,7 @@ public class Trap : MonoBehaviour
 
     protected void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<GunnerBall>() != null && !isActivated)
+        if ((other.gameObject.GetComponent<GunnerBall>() != null) && !isActivated && !other.gameObject.GetComponent<GunnerBall>().isActivated)
         {
             other.gameObject.GetComponent<GunnerBall>().isActivated = true;
             ActivateTrap();

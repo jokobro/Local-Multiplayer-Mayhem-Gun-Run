@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4944881750209989192}
   - component: {fileID: 4845130167817210172}
   - component: {fileID: -2701050944276533368}
+  - component: {fileID: 1115412451736034128}
   m_Layer: 0
   m_Name: bullet test
   m_TagString: Projectile
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1115412451736034128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271801246045153553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690e344dcc8e99648950a42c658be132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActivated: 0
