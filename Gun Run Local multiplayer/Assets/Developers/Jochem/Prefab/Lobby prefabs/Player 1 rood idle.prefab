@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8188454121787509454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0234478
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -77.30624
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9501328
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.31184572
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -36.341
+      objectReference: {fileID: 0}
+    - target: {fileID: -3823915588568156548, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 65e13efc178ac9b458e89d13110cbc76, type: 2}
+    - target: {fileID: 919132149155446097, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_Name
+      value: Player 1 rood idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1470140945192550500}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -476762083491132290}
+  m_SourcePrefab: {fileID: 100100000, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+--- !u!1 &9034874453392586655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c2db0f0c498137b4ab0feae959811860, type: 3}
+  m_PrefabInstance: {fileID: 8188454121787509454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1470140945192550500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034874453392586655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320d89f767b66674386331ed84de3f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNumber: 1
+  JumpForce: 5
+  RunSpeed: 3
+  BlockFireRatePickUp: 0
+  IsGunner: 0
+--- !u!114 &-476762083491132290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034874453392586655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 33e2190d4819c814697e74f48c9a796c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3248092155708468062, guid: bcfb110f92819fd4f9ac176139a22e58, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b2a53d9-4b0c-455b-a5ec-f5620fe12ac2
+    m_ActionName: Game/New action[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3248092155708468062, guid: bcfb110f92819fd4f9ac176139a22e58, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 49ce077b-cf19-4764-9867-ccf88291666a
+    m_ActionName: Game/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Pausing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c7e55604-d465-4a76-8375-2fdaf204fd73
+    m_ActionName: Game/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 301dc32f-4b99-4307-b1c1-6e621bb160bf
+    m_ActionName: UI/Unpause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c72f373-5261-4f4c-99ee-a183d0fe5b44
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 818f9fc2-faae-41f1-8a35-3c2673867192
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 85216cf1-ea04-4199-9a70-b6192594c29a
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1edf5ed-43cb-4ed5-864c-2a483163b1b1
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1520ef0a-7fb1-4f64-acea-3e4222843e65
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4b947942-2001-4a15-b4f0-786f40d02359
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47a44e4a-8069-4dea-abb3-577a487a0799
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1b7c2136-bc38-40b2-bb9e-c9d592b174ae
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3c44ac8-a6da-46d0-97dd-ff3a19b2958a
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d4d00608-9145-4757-8c1f-2c9f55937033
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a30c1d34-cefd-44d3-b527-a176d3d88a02
+    m_ActionName: Game/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cfa6d5e8-e942-4324-8f4b-0a6cf4e3d64b
+    m_ActionName: Game/Player2Movement[/Keyboard/f,/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33337694-57a2-4569-970b-193ed05e56a6
+    m_ActionName: Game/Player3Movement[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9aade5fb-bb1c-4071-8f45-6947a1e826e8
+    m_ActionName: Game/Player4Movement[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d7cf218-0fdb-463a-a287-40692c44cbba
+    m_ActionName: Game/Player2Jump[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7b09744-2341-4a82-b5e5-1ea5813465d6
+    m_ActionName: Game/Player3Jump[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a56f504-0d7c-498a-8679-7b4766b53e71
+    m_ActionName: Game/Player4Jump[/Keyboard/upArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Game
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
