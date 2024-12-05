@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Cloud shader
-  m_Shader: {fileID: -6465566751694194690, guid: 3b2b32c992f5f9d49af9e1be3aef773d, type: 3}
+  m_Name: Yellow player 4
+  m_Shader: {fileID: -6465566751694194690, guid: dd051fda297a1f841af2c9804db2204e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -16,9 +16,8 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 1979
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -26,23 +25,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BUILTIN_AlphaClip: 0
-    - _BUILTIN_Blend: 0
-    - _BUILTIN_CullMode: 0
-    - _BUILTIN_DstBlend: 0
     - _BUILTIN_QueueControl: 0
-    - _BUILTIN_QueueOffset: -21
-    - _BUILTIN_SrcBlend: 1
-    - _BUILTIN_Surface: 0
-    - _BUILTIN_ZTest: 4
-    - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 0
-    - _Float: 0.1
-    - _Property: 0.1
+    - _BUILTIN_QueueOffset: 0
+    - _Fade_distacne: 0.8
+    - _Outline_thick: 0.01
     m_Colors:
-    - _Propetcy: {r: 90, g: 0, b: 0, a: 0}
+    - _Outline_color: {r: 0.7327044, g: 0.98473924, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &7745766799276503605
+--- !u!114 &2152302885082954564
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
