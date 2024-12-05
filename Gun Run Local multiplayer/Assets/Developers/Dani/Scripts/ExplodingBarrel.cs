@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplodingBarrel : Trap
 {
     [SerializeField] private GameObject _explosion;
+    [SerializeField] private GameObject _explosionIndicator;
     [SerializeField][Range(1, 5)] private float _fuseTime;
     [SerializeField][Range(1, 50)] private float _explosionRadius;
     [SerializeField][Range(0, 2500)] private int _explosionForce;
@@ -23,6 +24,8 @@ public class ExplodingBarrel : Trap
 
     IEnumerator fuse()
     {
+        GameObject _indicator = Instantiate(_explosionIndicator, transform.position, Quaternion.identity, gameObject.transform);
+        _indicator.transform.localScale = new Vector3(2, _explosionRadius * 2, _explosionRadius * 2);
         yield return new WaitForSeconds(_fuseTime);
         Explode();
     }
@@ -69,7 +72,7 @@ public class ExplodingBarrel : Trap
 
     void OnDrawGizmosSelected()
     {
-        // Draw a yellow sphere at the transform's position
+        // Draw a yellow sphere at the transform's position in the editor to see
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _explosionRadius);
     }
