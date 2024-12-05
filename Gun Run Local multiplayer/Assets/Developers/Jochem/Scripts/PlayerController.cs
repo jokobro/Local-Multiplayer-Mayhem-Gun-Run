@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
         Destroy(gameObject);
         Debug.Log($"Player {PlayerNumber} died!");

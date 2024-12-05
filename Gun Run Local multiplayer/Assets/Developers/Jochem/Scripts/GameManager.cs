@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
 
         int playerNumber = Players.Count + 1; // Bepaal het PlayerNumber
         Transform spawnPoint = SpawnPoints[Players.Count]; // Kies spawnlocatie
-        GameObject playerObj = Instantiate(PlayerPrefabs[Players.Count], spawnPoint.position, spawnPoint.rotation);
-
+        GameObject playerObj = Instantiate(PlayerPrefabs[Players.Count],spawnPoint.position,Quaternion.Euler(-90, spawnPoint.rotation.eulerAngles.y, spawnPoint.rotation.eulerAngles.z));
         PlayerController playerController = playerObj.GetComponent<PlayerController>();
         playerController.PlayerNumber = playerNumber; // Ken een uniek PlayerNumber toe
         DontDestroyOnLoad(playerObj);
