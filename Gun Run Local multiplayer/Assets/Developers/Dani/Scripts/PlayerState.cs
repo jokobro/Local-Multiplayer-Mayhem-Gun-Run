@@ -20,6 +20,7 @@ public class PlayerState : MonoBehaviour
     {
         if (!invulnerable && state != PlayerStates.dead)
         {
+            GetComponent<PlayerController>().Death();
             Debug.Log(gameObject.name + " Killed");
             state = PlayerStates.dead;
         }
