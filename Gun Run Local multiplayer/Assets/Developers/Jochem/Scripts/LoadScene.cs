@@ -17,5 +17,9 @@ public class LoadScene : MonoBehaviour
         StartButtonPressed = true;
     }
     
-
+    public void ReloadScene()
+    {
+       string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
 }
