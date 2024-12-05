@@ -122,8 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   _explosion: {fileID: 4081038988949065556, guid: fca8f610a19319b4fac50804fa0c9d59, type: 3}
+  _explosionIndicator: {fileID: 2222970352749544758, guid: 932326380b5957d4a971ae1ca148d1dd, type: 3}
   _fuseTime: 1.5
-  _explosionRadius: 9
+  _explosionRadius: 6
   _explosionForce: 1051
   _dontHit:
     serializedVersion: 2
