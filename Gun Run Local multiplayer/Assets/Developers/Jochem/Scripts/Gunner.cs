@@ -43,7 +43,4 @@ public class Gunner : MonoBehaviour
 
         Debug.Log("Gunner heeft geschoten!");
     }
-
-
-
 }

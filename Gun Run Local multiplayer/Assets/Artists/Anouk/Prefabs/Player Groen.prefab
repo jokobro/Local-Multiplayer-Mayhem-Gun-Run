@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1067495
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.81
+      value: 335.3346
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -107.48428
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2dcfe1222490e6d46a65092faf82970e, type: 2}
     - target: {fileID: 919132149155446097, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_Name
-      value: Player 4 groen
+      value: Player Groen
       objectReference: {fileID: 0}
     - target: {fileID: 1020893374575387610, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_Materials.Array.data[0]
