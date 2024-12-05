@@ -55,7 +55,7 @@ public class ExplodingBarrel : Trap
                     }
 
                     // damage any player within it's radius
-                    if (hitGameObject.gameObject.GetComponent<PlayerState>() != null)
+                    if ((hitGameObject.GetComponent<PlayerState>() != null) && hitGameObject.GetComponent<PlayerState>().state == PlayerStates.alive)
                     {
                         hitGameObject.gameObject.GetComponent<PlayerState>().Damage();
                     }
