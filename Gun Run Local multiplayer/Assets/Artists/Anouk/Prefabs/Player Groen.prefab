@@ -34,19 +34,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.09073418
+      value: 0.7010574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09073407
+      value: -0.7010574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7012612
+      value: 0.09229593
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.70126134
+      value: 0.09229593
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -165.255
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8544794840365432226, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2dcfe1222490e6d46a65092faf82970e, type: 2}
     - target: {fileID: 919132149155446097, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_Name
-      value: Player 4 groen
+      value: Player Groen
       objectReference: {fileID: 0}
     - target: {fileID: 1020893374575387610, guid: a20f00041b1d39548ba8ea0a51d8b754, type: 3}
       propertyPath: m_Materials.Array.data[0]
