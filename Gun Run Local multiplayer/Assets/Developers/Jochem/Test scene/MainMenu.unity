@@ -376,7 +376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff390e1e46f5dd4439cdee15a3f5fbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1116164441416476460, guid: bcfb110f92819fd4f9ac176139a22e58, type: 3}
+  PlayerPrefabs:
+  - {fileID: 9034874453392586655, guid: 51fc44cf241bba349b1f40d8e2dd96f9, type: 3}
+  - {fileID: 6232281716100408246, guid: bdb953eb5c0b7c246a3df0629bd024dc, type: 3}
+  - {fileID: 1796199446949368855, guid: c82f5fb66a91cac4d914d30587241f12, type: 3}
+  - {fileID: 8947479225280410085, guid: 43228ea54561f294bb2bec761bfddc9e, type: 3}
   _gunnerPrefab: {fileID: 2353647656933344212, guid: 0925af4088479344985ff92f2c5be940, type: 3}
   SpawnPoints:
   - {fileID: 1010081179}
@@ -386,7 +390,6 @@ MonoBehaviour:
   Players: []
   Runners: []
   MaxPlayers: 4
-  _mainScene: 0
 --- !u!4 &663650366
 Transform:
   m_ObjectHideFlags: 0

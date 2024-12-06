@@ -9,12 +9,24 @@ public class Gunner : MonoBehaviour
     public float FireRate = 0.5f; // Vuursnelheid
     private float _nextFireTime;
 
+   private void OnEnable()
+    {
+        if (MainCamera == null)
+        {
+            MainCamera = Camera.main;
+            if (MainCamera == null)
+            {
+                Debug.LogError("Geen camera gevonden met de tag 'MainCamera' in deze scene!");
+            }
+        }
+   }
+
     private void Update()
     {
         Aim();
         if (Input.GetButtonDown("Fire1") && Time.time >= _nextFireTime)
         {
-            Shoot();
+           Shoot();
         }
     }
 
