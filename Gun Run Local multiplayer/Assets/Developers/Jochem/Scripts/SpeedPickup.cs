@@ -11,15 +11,7 @@ public class SpeedPickup : MonoBehaviour
         activateSpeedPickup();
     }
 
-    /* private void OnCollisionEnter(Collision collision)
-     {
-         if(collision.gameObject.tag == "player")
-         {
-             FindObjectOfType<PlayerController>().RunSpeed = 4.5f;
-             StartCoroutine(resetRunSpeedBack());
-         }
-     }*/
-
+    
     private void activateSpeedPickup()
     {
         GetComponent<PlayerController>().RunSpeed = 4.5f;
